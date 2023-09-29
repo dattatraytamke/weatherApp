@@ -54,9 +54,7 @@ Get a summary of the weather forecast for a specific location.
 
 **Request Headers**:
 
-- `clientId` (header): Header-based authentication with a random client ID
-- `clientSecret` (header): Header-based authentication with a random client Secret
-- `X-RapidAPI-Key` (header): valid API key from rapid API account
+- `Authorization` (header): Header-based authentication with jwt token
 
 **Parameters**:
 
@@ -66,9 +64,7 @@ Get a summary of the weather forecast for a specific location.
 
 ```http
 GET /weather/summary?locationName=Mumbai
-clientId: <random_client_id>
-clientSecret: <random_clinet_secret>
-X-RapidAPI-Key: <api_key>
+Authorization: <Bearer_token>
 ```
 
 ## Get Weather Forecast
@@ -81,9 +77,7 @@ Get a hourly weather forecast for a specific location.
 
 **Request Headers**:
 
-- `clientId` (header): Header-based authentication with a random client ID
-- `clientSecret` (header): Header-based authentication with a random client Secret
-- `X-RapidAPI-Key` (header): Valid API key from your Rapid API account
+- `Authorization` (header): Header-based authentication with jwt token
 
 **Parameters**:
 
@@ -93,10 +87,31 @@ Get a hourly weather forecast for a specific location.
 
 ```http
 GET /weather/hourly-forecast?locationName=Mumbai
+Authorization: <Bearer_token>
+```
+
+## Authentication login
+
+Get jwt token based on clientId and clientSecret.
+
+**Endpoint**: `/login`
+
+**HTTP Method**: POST
+
+**Request Headers**:
+
+- `clientId` (header): Header-based authentication with a random client ID
+- `clientSecret` (header): Header-based authentication with a random client Secret
+
+**Example Request**:
+
+```http
+POST /login
 clientId: <random_client_id>
 clientSecret: <random_client_secret>
-X-RapidAPI-Key: <api_key>
 ```
+
+
 
 
 
